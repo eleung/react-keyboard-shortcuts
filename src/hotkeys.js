@@ -55,11 +55,28 @@ export const hotkeys = (Component, overwrites = {}) => {
         console.warn(`Component: ${Component.displayName} did not provide hotkey handlers`)
         return
       }
+      if (this.props.disabled) { // eslint-disable-line react/prop-types
+        return
+      }
       load_hotkeys(handlers)
     }
-    componentWillUnmount () {
+
+    componentWillUpdate (nextProps) {
       const handlers = this.wrapped_component[options.hot_key_property_name]
       if (handlers == null) return
+
+      if (nextProps.disabled !== this.props.disabled) {
+        if (nextProps.disabled) {
+          unload_hotkeys(handlers)
+        } else {
+          load_hotkeys(handlers)
+        }
+      }
+    }
+
+    componentWillUnmount () {
+      const handlers = this.wrapped_component[options.hot_key_property_name]
+      if (handlers == null || this.props.disabled) return
       unload_hotkeys(handlers)
     }
 
