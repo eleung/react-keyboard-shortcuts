@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.6"></a>
+## [1.1.6](https://github.com/CurtisHumphrey/react-keyboard-shortcuts/compare/v1.1.5...v1.1.6) (2021-07-01)
+
+
+
 <a name="1.1.5"></a>
 ## [1.1.5](https://github.com/CurtisHumphrey/react-keyboard-shortcuts/compare/v1.1.2...v1.1.5) (2021-06-30)
 
